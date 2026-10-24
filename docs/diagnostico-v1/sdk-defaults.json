@@ -1,0 +1,16 @@
+{
+  "measured_in": "docker compose exec app",
+  "openai": {
+    "version": "3.19.0",
+    "max_retries": 2,
+    "timeout": {"connect": 5.0, "read": 600, "write": 600, "pool": 600}
+  },
+  "anthropic": {
+    "version": "1.8.0",
+    "max_retries": 2,
+    "timeout": {"connect": 5.0, "read": 600, "write": 600, "pool": 600}
+  },
+  "app_code": "app/helpdesk/llm.py nao passa timeout nem max_retries",
+  "edge": "proxy_read_timeout 30s em edge/nginx.conf",
+  "observed_retries_on_error_500": "3 chamadas por feature afetada (1 tentativa + 2 retries)"
+}

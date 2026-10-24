@@ -1,0 +1,26 @@
+{
+  "command": "curl -s -D - -o /tmp/f2.json -w 'ttfb:%{time_starttransfer} total:%{time_total}\\n' -X POST localhost:8000/tickets/reply-suggestion -H 'Content-Type: application/json' -d '{\"ticket_id\":\"TK-00042\",\"text\":\"Meu pedido #481516 não chegou e já passou do prazo, urgente\"}'",
+  "response": {
+    "status": 200,
+    "ttfb_s": 15.957,
+    "total_s": 15.957,
+    "content_type": "application/json",
+    "bytes": 2606,
+    "body": {
+      "ticket_id": "TK-00042",
+      "suggestion_chars": 2424
+    }
+  },
+  "calls": [
+    {
+      "provider": "anthropic",
+      "model": "claude-fake-large",
+      "task": "suggest",
+      "status": 200,
+      "stream": false,
+      "duration_ms": 15950,
+      "input_tokens": 19,
+      "output_tokens": 606
+    }
+  ]
+}

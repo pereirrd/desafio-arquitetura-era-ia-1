@@ -1,0 +1,638 @@
+{
+  "command": "curl -s -X POST localhost:8000/reports/topics -H 'Content-Type: application/json' -d '{\"start\":\"2026-08-01\",\"end\":\"2026-08-31\"}'",
+  "edge": {
+    "status": 504,
+    "ttfb_s": 30.032,
+    "total_s": 30.032,
+    "bytes": 167,
+    "edge_log": "upstream timed out (110: Operation timed out) while reading response header from upstream, POST /reports/topics, 504 167"
+  },
+  "polls": [
+    {
+      "wall": "12:59:20",
+      "topics": 11,
+      "topics_done": 10,
+      "topics_inflight": 1,
+      "statuses": [
+        "200",
+        "None"
+      ],
+      "output_tokens_done": 3569
+    },
+    {
+      "wall": "12:59:35",
+      "topics": 12,
+      "topics_done": 11,
+      "topics_inflight": 1,
+      "statuses": [
+        "200",
+        "None"
+      ],
+      "output_tokens_done": 3930
+    },
+    {
+      "wall": "12:59:50",
+      "topics": 14,
+      "topics_done": 13,
+      "topics_inflight": 1,
+      "statuses": [
+        "200",
+        "None"
+      ],
+      "output_tokens_done": 4652
+    },
+    {
+      "wall": "13:00:05",
+      "topics": 15,
+      "topics_done": 14,
+      "topics_inflight": 1,
+      "statuses": [
+        "200",
+        "None"
+      ],
+      "output_tokens_done": 5014
+    },
+    {
+      "wall": "13:00:20",
+      "topics": 17,
+      "topics_done": 16,
+      "topics_inflight": 1,
+      "statuses": [
+        "200",
+        "None"
+      ],
+      "output_tokens_done": 5730
+    },
+    {
+      "wall": "13:00:35",
+      "topics": 18,
+      "topics_done": 17,
+      "topics_inflight": 1,
+      "statuses": [
+        "200",
+        "None"
+      ],
+      "output_tokens_done": 6091
+    },
+    {
+      "wall": "13:00:50",
+      "topics": 20,
+      "topics_done": 19,
+      "topics_inflight": 1,
+      "statuses": [
+        "200",
+        "None"
+      ],
+      "output_tokens_done": 6810
+    },
+    {
+      "wall": "13:01:05",
+      "topics": 22,
+      "topics_done": 21,
+      "topics_inflight": 1,
+      "statuses": [
+        "200",
+        "None"
+      ],
+      "output_tokens_done": 7529
+    },
+    {
+      "wall": "13:01:20",
+      "topics": 23,
+      "topics_done": 22,
+      "topics_inflight": 1,
+      "statuses": [
+        "200",
+        "None"
+      ],
+      "output_tokens_done": 7887
+    },
+    {
+      "wall": "13:01:35",
+      "topics": 25,
+      "topics_done": 24,
+      "topics_inflight": 1,
+      "statuses": [
+        "200",
+        "None"
+      ],
+      "output_tokens_done": 8609
+    },
+    {
+      "wall": "13:01:50",
+      "topics": 26,
+      "topics_done": 25,
+      "topics_inflight": 1,
+      "statuses": [
+        "200",
+        "None"
+      ],
+      "output_tokens_done": 8970
+    },
+    {
+      "wall": "13:02:05",
+      "topics": 28,
+      "topics_done": 27,
+      "topics_inflight": 1,
+      "statuses": [
+        "200",
+        "None"
+      ],
+      "output_tokens_done": 9689
+    },
+    {
+      "wall": "13:02:20",
+      "topics": 29,
+      "topics_done": 28,
+      "topics_inflight": 1,
+      "statuses": [
+        "200",
+        "None"
+      ],
+      "output_tokens_done": 10050
+    },
+    {
+      "wall": "13:02:35",
+      "topics": 31,
+      "topics_done": 30,
+      "topics_inflight": 1,
+      "statuses": [
+        "200",
+        "None"
+      ],
+      "output_tokens_done": 10765
+    },
+    {
+      "wall": "13:02:50",
+      "topics": 32,
+      "topics_done": 31,
+      "topics_inflight": 1,
+      "statuses": [
+        "200",
+        "None"
+      ],
+      "output_tokens_done": 11125
+    },
+    {
+      "wall": "13:03:05",
+      "topics": 34,
+      "topics_done": 33,
+      "topics_inflight": 1,
+      "statuses": [
+        "200",
+        "None"
+      ],
+      "output_tokens_done": 11847
+    },
+    {
+      "wall": "13:03:20",
+      "topics": 34,
+      "topics_done": 34,
+      "topics_inflight": 0,
+      "statuses": [
+        "200"
+      ],
+      "output_tokens_done": 12162
+    },
+    {
+      "wall": "13:03:35",
+      "topics": 34,
+      "topics_done": 34,
+      "topics_inflight": 0,
+      "statuses": [
+        "200"
+      ],
+      "output_tokens_done": 12162
+    },
+    {
+      "wall": "13:03:50",
+      "topics": 34,
+      "topics_done": 34,
+      "topics_inflight": 0,
+      "statuses": [
+        "200"
+      ],
+      "output_tokens_done": 12162
+    }
+  ],
+  "final_summary": {
+    "wall": "13:03:50",
+    "topics": 34,
+    "topics_done": 34,
+    "topics_inflight": 0,
+    "statuses": [
+      "200"
+    ],
+    "output_tokens_done": 12162
+  },
+  "calls": [
+    {
+      "id": "98c7b67d936e",
+      "ts": "2026-10-24T15:57:39.969+00:00",
+      "provider": "anthropic",
+      "model": "claude-fake-large",
+      "task": "topics",
+      "stream": false,
+      "status": 200,
+      "input_tokens": 6711,
+      "output_tokens": 361,
+      "duration_ms": 9827
+    },
+    {
+      "id": "4af230c87511",
+      "ts": "2026-10-24T15:57:49.798+00:00",
+      "provider": "anthropic",
+      "model": "claude-fake-large",
+      "task": "topics",
+      "stream": false,
+      "status": 200,
+      "input_tokens": 6637,
+      "output_tokens": 361,
+      "duration_ms": 9827
+    },
+    {
+      "id": "92e364b44818",
+      "ts": "2026-10-24T15:57:59.629+00:00",
+      "provider": "anthropic",
+      "model": "claude-fake-large",
+      "task": "topics",
+      "stream": false,
+      "status": 200,
+      "input_tokens": 6627,
+      "output_tokens": 361,
+      "duration_ms": 9827
+    },
+    {
+      "id": "30f43e57d234",
+      "ts": "2026-10-24T15:58:09.457+00:00",
+      "provider": "anthropic",
+      "model": "claude-fake-large",
+      "task": "topics",
+      "stream": false,
+      "status": 200,
+      "input_tokens": 6656,
+      "output_tokens": 337,
+      "duration_ms": 9227
+    },
+    {
+      "id": "b06ca2197b26",
+      "ts": "2026-10-24T15:58:18.687+00:00",
+      "provider": "anthropic",
+      "model": "claude-fake-large",
+      "task": "topics",
+      "stream": false,
+      "status": 200,
+      "input_tokens": 6644,
+      "output_tokens": 357,
+      "duration_ms": 9727
+    },
+    {
+      "id": "1c7d1cb33834",
+      "ts": "2026-10-24T15:58:28.417+00:00",
+      "provider": "anthropic",
+      "model": "claude-fake-large",
+      "task": "topics",
+      "stream": false,
+      "status": 200,
+      "input_tokens": 6581,
+      "output_tokens": 361,
+      "duration_ms": 9826
+    },
+    {
+      "id": "8e80aa89f09d",
+      "ts": "2026-10-24T15:58:38.246+00:00",
+      "provider": "anthropic",
+      "model": "claude-fake-large",
+      "task": "topics",
+      "stream": false,
+      "status": 200,
+      "input_tokens": 6624,
+      "output_tokens": 357,
+      "duration_ms": 9726
+    },
+    {
+      "id": "c1dedcf29ce8",
+      "ts": "2026-10-24T15:58:47.975+00:00",
+      "provider": "anthropic",
+      "model": "claude-fake-large",
+      "task": "topics",
+      "stream": false,
+      "status": 200,
+      "input_tokens": 6678,
+      "output_tokens": 361,
+      "duration_ms": 9828
+    },
+    {
+      "id": "56e37954a5a7",
+      "ts": "2026-10-24T15:58:57.805+00:00",
+      "provider": "anthropic",
+      "model": "claude-fake-large",
+      "task": "topics",
+      "stream": false,
+      "status": 200,
+      "input_tokens": 6712,
+      "output_tokens": 358,
+      "duration_ms": 9752
+    },
+    {
+      "id": "c63fa720ed8b",
+      "ts": "2026-10-24T15:59:07.560+00:00",
+      "provider": "anthropic",
+      "model": "claude-fake-large",
+      "task": "topics",
+      "stream": false,
+      "status": 200,
+      "input_tokens": 6681,
+      "output_tokens": 355,
+      "duration_ms": 9676
+    },
+    {
+      "id": "df7bd9b13111",
+      "ts": "2026-10-24T15:59:17.239+00:00",
+      "provider": "anthropic",
+      "model": "claude-fake-large",
+      "task": "topics",
+      "stream": false,
+      "status": 200,
+      "input_tokens": 6702,
+      "output_tokens": 361,
+      "duration_ms": 9827
+    },
+    {
+      "id": "8faa2ff2ad06",
+      "ts": "2026-10-24T15:59:27.069+00:00",
+      "provider": "anthropic",
+      "model": "claude-fake-large",
+      "task": "topics",
+      "stream": false,
+      "status": 200,
+      "input_tokens": 6686,
+      "output_tokens": 361,
+      "duration_ms": 9827
+    },
+    {
+      "id": "e252fcd2e952",
+      "ts": "2026-10-24T15:59:36.898+00:00",
+      "provider": "anthropic",
+      "model": "claude-fake-large",
+      "task": "topics",
+      "stream": false,
+      "status": 200,
+      "input_tokens": 6653,
+      "output_tokens": 361,
+      "duration_ms": 9827
+    },
+    {
+      "id": "cc8a0edc6d92",
+      "ts": "2026-10-24T15:59:46.727+00:00",
+      "provider": "anthropic",
+      "model": "claude-fake-large",
+      "task": "topics",
+      "stream": false,
+      "status": 200,
+      "input_tokens": 6691,
+      "output_tokens": 362,
+      "duration_ms": 9852
+    },
+    {
+      "id": "16d6ccdf285e",
+      "ts": "2026-10-24T15:59:56.582+00:00",
+      "provider": "anthropic",
+      "model": "claude-fake-large",
+      "task": "topics",
+      "stream": false,
+      "status": 200,
+      "input_tokens": 6641,
+      "output_tokens": 358,
+      "duration_ms": 9752
+    },
+    {
+      "id": "90d3dfb87b56",
+      "ts": "2026-10-24T16:00:06.337+00:00",
+      "provider": "anthropic",
+      "model": "claude-fake-large",
+      "task": "topics",
+      "stream": false,
+      "status": 200,
+      "input_tokens": 6642,
+      "output_tokens": 358,
+      "duration_ms": 9751
+    },
+    {
+      "id": "6218d2a6ba35",
+      "ts": "2026-10-24T16:00:16.091+00:00",
+      "provider": "anthropic",
+      "model": "claude-fake-large",
+      "task": "topics",
+      "stream": false,
+      "status": 200,
+      "input_tokens": 6660,
+      "output_tokens": 361,
+      "duration_ms": 9826
+    },
+    {
+      "id": "193e89ea4da2",
+      "ts": "2026-10-24T16:00:25.920+00:00",
+      "provider": "anthropic",
+      "model": "claude-fake-large",
+      "task": "topics",
+      "stream": false,
+      "status": 200,
+      "input_tokens": 6634,
+      "output_tokens": 361,
+      "duration_ms": 9827
+    },
+    {
+      "id": "5d0807f8dc97",
+      "ts": "2026-10-24T16:00:35.749+00:00",
+      "provider": "anthropic",
+      "model": "claude-fake-large",
+      "task": "topics",
+      "stream": false,
+      "status": 200,
+      "input_tokens": 6679,
+      "output_tokens": 358,
+      "duration_ms": 9752
+    },
+    {
+      "id": "ecb1aa62f68f",
+      "ts": "2026-10-24T16:00:45.504+00:00",
+      "provider": "anthropic",
+      "model": "claude-fake-large",
+      "task": "topics",
+      "stream": false,
+      "status": 200,
+      "input_tokens": 6675,
+      "output_tokens": 361,
+      "duration_ms": 9827
+    },
+    {
+      "id": "86e2004739b5",
+      "ts": "2026-10-24T16:00:55.333+00:00",
+      "provider": "anthropic",
+      "model": "claude-fake-large",
+      "task": "topics",
+      "stream": false,
+      "status": 200,
+      "input_tokens": 6729,
+      "output_tokens": 358,
+      "duration_ms": 9751
+    },
+    {
+      "id": "f34ec24792cd",
+      "ts": "2026-10-24T16:01:05.087+00:00",
+      "provider": "anthropic",
+      "model": "claude-fake-large",
+      "task": "topics",
+      "stream": false,
+      "status": 200,
+      "input_tokens": 6649,
+      "output_tokens": 358,
+      "duration_ms": 9752
+    },
+    {
+      "id": "be9de65a8e91",
+      "ts": "2026-10-24T16:01:14.842+00:00",
+      "provider": "anthropic",
+      "model": "claude-fake-large",
+      "task": "topics",
+      "stream": false,
+      "status": 200,
+      "input_tokens": 6644,
+      "output_tokens": 361,
+      "duration_ms": 9827
+    },
+    {
+      "id": "da16806520fd",
+      "ts": "2026-10-24T16:01:24.672+00:00",
+      "provider": "anthropic",
+      "model": "claude-fake-large",
+      "task": "topics",
+      "stream": false,
+      "status": 200,
+      "input_tokens": 6619,
+      "output_tokens": 361,
+      "duration_ms": 9827
+    },
+    {
+      "id": "a1564c36e6ad",
+      "ts": "2026-10-24T16:01:34.502+00:00",
+      "provider": "anthropic",
+      "model": "claude-fake-large",
+      "task": "topics",
+      "stream": false,
+      "status": 200,
+      "input_tokens": 6630,
+      "output_tokens": 361,
+      "duration_ms": 9828
+    },
+    {
+      "id": "2140503d5b8c",
+      "ts": "2026-10-24T16:01:44.333+00:00",
+      "provider": "anthropic",
+      "model": "claude-fake-large",
+      "task": "topics",
+      "stream": false,
+      "status": 200,
+      "input_tokens": 6708,
+      "output_tokens": 361,
+      "duration_ms": 9826
+    },
+    {
+      "id": "53fcb46b7282",
+      "ts": "2026-10-24T16:01:54.161+00:00",
+      "provider": "anthropic",
+      "model": "claude-fake-large",
+      "task": "topics",
+      "stream": false,
+      "status": 200,
+      "input_tokens": 6699,
+      "output_tokens": 358,
+      "duration_ms": 9752
+    },
+    {
+      "id": "e04082b4a5f0",
+      "ts": "2026-10-24T16:02:03.916+00:00",
+      "provider": "anthropic",
+      "model": "claude-fake-large",
+      "task": "topics",
+      "stream": false,
+      "status": 200,
+      "input_tokens": 6679,
+      "output_tokens": 361,
+      "duration_ms": 9826
+    },
+    {
+      "id": "2168b324f2ab",
+      "ts": "2026-10-24T16:02:13.745+00:00",
+      "provider": "anthropic",
+      "model": "claude-fake-large",
+      "task": "topics",
+      "stream": false,
+      "status": 200,
+      "input_tokens": 6693,
+      "output_tokens": 360,
+      "duration_ms": 9801
+    },
+    {
+      "id": "09b6455c6243",
+      "ts": "2026-10-24T16:02:23.549+00:00",
+      "provider": "anthropic",
+      "model": "claude-fake-large",
+      "task": "topics",
+      "stream": false,
+      "status": 200,
+      "input_tokens": 6699,
+      "output_tokens": 355,
+      "duration_ms": 9677
+    },
+    {
+      "id": "4517da6ca1eb",
+      "ts": "2026-10-24T16:02:33.228+00:00",
+      "provider": "anthropic",
+      "model": "claude-fake-large",
+      "task": "topics",
+      "stream": false,
+      "status": 200,
+      "input_tokens": 6651,
+      "output_tokens": 360,
+      "duration_ms": 9802
+    },
+    {
+      "id": "60b7dc8e28ce",
+      "ts": "2026-10-24T16:02:43.032+00:00",
+      "provider": "anthropic",
+      "model": "claude-fake-large",
+      "task": "topics",
+      "stream": false,
+      "status": 200,
+      "input_tokens": 6648,
+      "output_tokens": 361,
+      "duration_ms": 9827
+    },
+    {
+      "id": "929501e81618",
+      "ts": "2026-10-24T16:02:52.861+00:00",
+      "provider": "anthropic",
+      "model": "claude-fake-large",
+      "task": "topics",
+      "stream": false,
+      "status": 200,
+      "input_tokens": 6627,
+      "output_tokens": 361,
+      "duration_ms": 9827
+    },
+    {
+      "id": "7df07e647692",
+      "ts": "2026-10-24T16:03:02.691+00:00",
+      "provider": "anthropic",
+      "model": "claude-fake-large",
+      "task": "topics",
+      "stream": false,
+      "status": 200,
+      "input_tokens": 2225,
+      "output_tokens": 315,
+      "duration_ms": 8676
+    }
+  ]
+}
