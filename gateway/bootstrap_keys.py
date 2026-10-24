@@ -6,7 +6,19 @@ import urllib.request
 
 BASE = "http://127.0.0.1:4000"
 MASTER = os.environ["LITELLM_MASTER_KEY"]
-MODELS = ["helpdesk-classify", "helpdesk-suggest", "helpdesk-topics", "helpdesk-extract"]
+MODELS = [
+    "helpdesk-classify",
+    "helpdesk-classify-backup",
+    "helpdesk-classify-mini",
+    "helpdesk-suggest",
+    "helpdesk-suggest-backup",
+    "helpdesk-suggest-mini",
+    "helpdesk-topics",
+    "helpdesk-topics-backup",
+    "helpdesk-topics-mini",
+    "helpdesk-extract",
+    "helpdesk-extract-backup",
+]
 
 
 def wait_until_ready() -> None:
@@ -22,9 +34,9 @@ def wait_until_ready() -> None:
     raise SystemExit(f"gateway não ficou pronto: {last_error}")
 
 
-def generate(payload: dict) -> None:
+def post(path: str, payload: dict) -> None:
     request = urllib.request.Request(
-        f"{BASE}/key/generate",
+        f"{BASE}{path}",
         data=json.dumps(payload).encode(),
         headers={
             "Authorization": f"Bearer {MASTER}",
@@ -37,9 +49,20 @@ def generate(payload: dict) -> None:
             response.read()
     except urllib.error.HTTPError as error:
         body = error.read().decode(errors="replace")
-        if error.code in {400, 409} and "already" in body.lower():
-            return
-        raise SystemExit(f"falha ao criar chave {payload.get('key_alias')}: {error.code} {body}") from error
+        raise KeyError(body) from error
+
+
+def generate(payload: dict, spend: float | None = None) -> None:
+    try:
+        post("/key/generate", payload)
+    except KeyError as error:
+        body = str(error).lower()
+        if "already" not in body:
+            raise SystemExit(f"falha ao criar chave {payload.get('key_alias')}: {error}") from error
+    update = dict(payload)
+    if spend is not None:
+        update["spend"] = spend
+    post("/key/update", update)
 
 
 def main() -> None:
@@ -57,7 +80,7 @@ def main() -> None:
         "models": MODELS,
         "max_budget": 0.0000001,
         "budget_duration": "30d",
-    })
+    }, spend=1)
     generate({
         "key": os.environ["GATEWAY_RPM_KEY"],
         "key_alias": "helpdesk-rpm",

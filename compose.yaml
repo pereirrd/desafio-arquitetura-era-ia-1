@@ -22,6 +22,8 @@ services:
   gateway:
     image: ghcr.io/berriai/litellm:v1.102.1
     env_file: .env
+    ports:
+      - "4000:4000"
     volumes:
       - ./gateway:/gateway:ro
     entrypoint: ["/bin/sh", "/gateway/entrypoint.sh"]

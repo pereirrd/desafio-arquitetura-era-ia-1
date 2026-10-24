@@ -4,34 +4,101 @@ model_list:
       model: openai/gpt-fake-large
       api_base: http://provider-fake:8090/openai/v1
       api_key: os.environ/FAKE_OPENAI_KEY
+      timeout: 5
       input_cost_per_token: 0.0000025
       output_cost_per_token: 0.00001
+  - model_name: helpdesk-classify-backup
+    litellm_params:
+      model: anthropic/claude-fake-large
+      api_base: http://provider-fake:8090/anthropic
+      api_key: os.environ/FAKE_ANTHROPIC_KEY
+      timeout: 5
+      input_cost_per_token: 0.000003
+      output_cost_per_token: 0.000015
+  - model_name: helpdesk-classify-mini
+    litellm_params:
+      model: openai/gpt-fake-mini
+      api_base: http://provider-fake:8090/openai/v1
+      api_key: os.environ/FAKE_OPENAI_KEY
+      timeout: 5
+      input_cost_per_token: 0.00000015
+      output_cost_per_token: 0.0000006
   - model_name: helpdesk-suggest
     litellm_params:
       model: anthropic/claude-fake-large
       api_base: http://provider-fake:8090/anthropic
       api_key: os.environ/FAKE_ANTHROPIC_KEY
+      timeout: 25
       input_cost_per_token: 0.000003
       output_cost_per_token: 0.000015
+  - model_name: helpdesk-suggest-backup
+    litellm_params:
+      model: openai/gpt-fake-large
+      api_base: http://provider-fake:8090/openai/v1
+      api_key: os.environ/FAKE_OPENAI_KEY
+      timeout: 25
+      input_cost_per_token: 0.0000025
+      output_cost_per_token: 0.00001
+  - model_name: helpdesk-suggest-mini
+    litellm_params:
+      model: anthropic/claude-fake-mini
+      api_base: http://provider-fake:8090/anthropic
+      api_key: os.environ/FAKE_ANTHROPIC_KEY
+      timeout: 10
+      input_cost_per_token: 0.0000008
+      output_cost_per_token: 0.000004
   - model_name: helpdesk-topics
     litellm_params:
       model: anthropic/claude-fake-large
       api_base: http://provider-fake:8090/anthropic
       api_key: os.environ/FAKE_ANTHROPIC_KEY
+      timeout: 20
       input_cost_per_token: 0.000003
       output_cost_per_token: 0.000015
+  - model_name: helpdesk-topics-backup
+    litellm_params:
+      model: openai/gpt-fake-large
+      api_base: http://provider-fake:8090/openai/v1
+      api_key: os.environ/FAKE_OPENAI_KEY
+      timeout: 20
+      input_cost_per_token: 0.0000025
+      output_cost_per_token: 0.00001
+  - model_name: helpdesk-topics-mini
+    litellm_params:
+      model: anthropic/claude-fake-mini
+      api_base: http://provider-fake:8090/anthropic
+      api_key: os.environ/FAKE_ANTHROPIC_KEY
+      timeout: 10
+      input_cost_per_token: 0.0000008
+      output_cost_per_token: 0.000004
   - model_name: helpdesk-extract
     litellm_params:
       model: openai/gpt-fake-large
       api_base: http://provider-fake:8090/openai/v1
       api_key: os.environ/FAKE_OPENAI_KEY
+      timeout: 5
       input_cost_per_token: 0.0000025
       output_cost_per_token: 0.00001
+  - model_name: helpdesk-extract-backup
+    litellm_params:
+      model: anthropic/claude-fake-large
+      api_base: http://provider-fake:8090/anthropic
+      api_key: os.environ/FAKE_ANTHROPIC_KEY
+      timeout: 5
+      input_cost_per_token: 0.000003
+      output_cost_per_token: 0.000015
 
 litellm_settings:
   drop_params: true
-  num_retries: 0
-  request_timeout: 60
+  num_retries: 1
+  request_timeout: 25
+  allowed_fails: 100
+  cooldown_time: 0
+  fallbacks:
+    - helpdesk-classify: ["helpdesk-classify-backup", "helpdesk-classify-mini"]
+    - helpdesk-suggest: ["helpdesk-suggest-backup", "helpdesk-suggest-mini"]
+    - helpdesk-topics: ["helpdesk-topics-backup", "helpdesk-topics-mini"]
+    - helpdesk-extract: ["helpdesk-extract-backup"]
 
 general_settings:
   master_key: os.environ/LITELLM_MASTER_KEY

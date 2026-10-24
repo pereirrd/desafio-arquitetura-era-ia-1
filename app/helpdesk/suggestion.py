@@ -1,7 +1,8 @@
+from collections.abc import Iterator
+
 from .ports import TicketModel
-from .schemas import ReplySuggestion, TicketInput
+from .schemas import TicketInput
 
 
-def suggest(ticket: TicketInput, model: TicketModel) -> ReplySuggestion:
-    text = model.complete("helpdesk-suggest", "suggest", ticket.text)
-    return ReplySuggestion(ticket_id=ticket.ticket_id, suggestion=text)
+def suggest(ticket: TicketInput, model: TicketModel) -> Iterator[str]:
+    yield from model.stream("helpdesk-suggest", "suggest", ticket.text)
