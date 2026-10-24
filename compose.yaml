@@ -5,6 +5,38 @@ services:
     ports:
       - "8090:8090"
 
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: litellm
+      POSTGRES_PASSWORD: litellm
+      POSTGRES_DB: litellm
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U litellm -d litellm"]
+      interval: 2s
+      timeout: 3s
+      retries: 30
+
+  gateway:
+    image: ghcr.io/berriai/litellm:v1.102.1
+    env_file: .env
+    volumes:
+      - ./gateway:/gateway:ro
+    entrypoint: ["/bin/sh", "/gateway/entrypoint.sh"]
+    depends_on:
+      postgres:
+        condition: service_healthy
+      provider-fake:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "/gateway/healthcheck.py"]
+      interval: 3s
+      timeout: 5s
+      retries: 40
+      start_period: 20s
+
   edge:
     image: nginx:1.27-alpine
     ports:
@@ -17,7 +49,11 @@ services:
 
   app:
     build: ./app
-    env_file: .env
+    environment:
+      GATEWAY_BASE_URL: http://gateway:4000/v1
+      GATEWAY_API_KEY: ${GATEWAY_APP_KEY}
+      GATEWAY_TIMEOUT: "40"
+      TICKETS_FILE: /data/tickets.jsonl
     volumes:
       - ./data:/data:ro
     healthcheck:
@@ -26,5 +62,8 @@ services:
       timeout: 3s
       retries: 20
     depends_on:
-      provider-fake:
+      gateway:
         condition: service_healthy
+
+volumes:
+  postgres-data:
